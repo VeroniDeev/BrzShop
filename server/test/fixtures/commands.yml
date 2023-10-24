@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  product: one
+  order_date: 2023-10-23 22:41:46
+  is_delivred: false
+  comment: MyText
+  delivery_driver: MyString
+  delivery_time: 2023-10-23 22:41:46
+
+two:
+  user: two
+  product: two
+  order_date: 2023-10-23 22:41:46
+  is_delivred: false
+  comment: MyText
+  delivery_driver: MyString
+  delivery_time: 2023-10-23 22:41:46
