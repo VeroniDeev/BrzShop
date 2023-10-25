@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
       namespace :admin do
         resources :signin
-        resources :products
+        resources :products, param: :slug, constraints: { slug: /[^\/]+/ }
         resources :categorys, param: :slug, constraints: { slug: /[^\/]+/ }
         resources :coupons
       end

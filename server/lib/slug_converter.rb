@@ -1,11 +1,5 @@
 class SlugConverter
-  def self.deslugify(slug)
-    deslugged_text = slug.tr('-', ' ')
-    deslugged_text = deslugged_text.split
-    if deslugged_text.length == 1
-      return deslugged_text
-    end
-    deslugged_text = deslugged_text.map(&:capitalize).join(' ')
-    deslugged_text
+  def self.deslugify(input_string)
+    return input_string.gsub('-', ' ')
   end
 end
