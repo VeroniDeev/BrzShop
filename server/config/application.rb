@@ -1,4 +1,5 @@
 require_relative "boot"
+require_relative "middleware/check_perm_middleware"
 
 require "rails/all"
 
@@ -29,5 +30,7 @@ module Server
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.middleware.use CheckPermMiddleware
   end
 end

@@ -5,8 +5,12 @@ class TokenManager
       JWT.encode(playload, Rails.application.secrets.secret_key_base)
     end
     def decode(token)
-      decoded = JWT.decode(token, Rails.application.secrets.secret_key_base)
-      decoded[0]
+      decoded = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
+      if decoded["exp"] < Time.now.to_i
+        return nil
+      else
+        return decoded
+      end
     rescue JWT::DecodeError
       nil
     end
