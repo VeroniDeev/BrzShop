@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :signup
       resources :signin
-      resources :signout
+
+      namespace :data do
+        resources :products,  param: :slug, constraints: { slug: /[^\/]+/ }
+        resources :categorys,  param: :slug, constraints: { slug: /[^\/]+/ }
+      end
 
       namespace :admin do
         resources :signin
