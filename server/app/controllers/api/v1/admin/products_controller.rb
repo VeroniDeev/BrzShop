@@ -9,7 +9,7 @@ class Api::V1::Admin::ProductsController < ApplicationController
     if product
       render json: { "status": "success", "data": product.as_json(except: :id) }, status: :ok
     else
-      render json: { "status": "failed", "dd": deslug }, status: :not_found
+      render json: { "status": "failed" }, status: :not_found
     end
   end
   def create
@@ -48,7 +48,7 @@ class Api::V1::Admin::ProductsController < ApplicationController
       product.destroy
       render json: {"status": "success"}
     else
-      render json: {"status": "failed", "jsondb": product.as_json, "slugged": deslug}
+      render json: {"status": "failed"}
     end
   end
   def user_params

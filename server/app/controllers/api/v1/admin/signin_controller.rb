@@ -1,9 +1,5 @@
 class Api::V1::Admin::SigninController < ApplicationController
   def create
-    # if params[:token] && CheckPerm.has_perm(params[:token])
-    #   return render json: {"state": "success"}, status: :ok
-    # end
-
     user = User.find_by(mail: params[:mail])
 
     if user && user.authenticate(params[:password]) && (user.role == "admin" || user.role == "owner")

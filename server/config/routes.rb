@@ -9,7 +9,7 @@ Rails.application.routes.draw do
         resources :signin
         resources :products, param: :slug, constraints: { slug: /[^\/]+/ }
         resources :categorys, param: :slug, constraints: { slug: /[^\/]+/ }
-        resources :coupons
+        resources :coupons, param: :slug, constraints: { slug: /[^\/]+/ }
       end
     end
   end

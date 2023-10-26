@@ -1,6 +1,6 @@
 class Api::V1::Admin::CategorysController < ApplicationController
   def index
-    categorys = Category.all
+    categorys = Category.page(params[:page]).per(params[:per_page])
     render json: {"status": "success", "data": categorys.as_json(except: :id)}
   end
   def show
