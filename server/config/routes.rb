@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       namespace :data do
         resources :products,  param: :slug, constraints: { slug: /[^\/]+/ }
         resources :categorys,  param: :slug, constraints: { slug: /[^\/]+/ }
+        resources :image_product, param: :slug, constraints: { slug: /[^\/]+/ }
       end
 
       namespace :admin do
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
         resources :products, param: :slug, constraints: { slug: /[^\/]+/ }
         resources :categorys, param: :slug, constraints: { slug: /[^\/]+/ }
         resources :coupons, param: :slug, constraints: { slug: /[^\/]+/ }
+        resources :image_product
       end
     end
   end

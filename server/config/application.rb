@@ -8,6 +8,8 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 Dotenv::Railtie.load
 
+Dir.mkdir("image") unless File.directory?("image")
+
 module Server
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

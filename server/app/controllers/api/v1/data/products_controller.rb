@@ -23,5 +23,4 @@ class Api::V1::Data::ProductsController < ApplicationController
       render json: { "status": "failed" }, status: :not_found
     end
   end
-
 end

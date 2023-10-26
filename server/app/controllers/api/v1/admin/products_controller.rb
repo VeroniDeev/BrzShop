@@ -7,7 +7,9 @@ class Api::V1::Admin::ProductsController < ApplicationController
     deslug = SlugConverter.deslugify(params[:slug])
     product = Product.find_by(name: deslug)
     if product
-      render json: { "status": "success", "data": product.as_json(except: :id) }, status: :ok
+      entries = Dir.entries(product.picture)
+      entries_filter = entries.reject { |entry| entry == '.' || entry == '..' }
+      render json: { "status": "success", "data": product.as_json(except: [:id, :picture]).merge(picture: entries_filter)  }, status: :ok
     else
       render json: { "status": "failed" }, status: :not_found
     end
@@ -45,6 +47,7 @@ class Api::V1::Admin::ProductsController < ApplicationController
     product = Product.find_by(name: deslug)
 
     if product
+      FileUtils.remove_dir(product.picture)
       product.destroy
       render json: {"status": "success"}
     else
@@ -52,6 +55,6 @@ class Api::V1::Admin::ProductsController < ApplicationController
     end
   end
   def user_params
-    params.permit(:name, :description, :price, :picture, :stock)
+    params.permit(:name, :description, :price, :stock)
   end
 end
