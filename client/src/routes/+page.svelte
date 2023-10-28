@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import CategoryList from '../components/CategoryList.svelte';
+	import PromoAnnounce from '../components/PromoAnnounce.svelte';
+	import CategoryWithProduct from '../components/CategoryWithProduct.svelte';
+</script>
+
+<CategoryList />
+<PromoAnnounce />
+<CategoryWithProduct category="Phone" />
