@@ -6,4 +6,6 @@
 
 <CategoryList />
 <PromoAnnounce />
+
 <CategoryWithProduct category="Phone" />
+<CategoryWithProduct category="po" />

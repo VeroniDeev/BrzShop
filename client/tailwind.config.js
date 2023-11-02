@@ -15,6 +15,9 @@ export default {
 			},
 			colors: {
 				'orange-star': '#E27D06'
+			},
+			height: {
+				'1/2vh': '50vh'
 			}
 		}
 	},
